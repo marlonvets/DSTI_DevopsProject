@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  redis:
+    image: redis
+    volumes:
+        - data:/data
+  web:
+ 
+    # COMPLETE HERE
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+        - redis
+volumes:
+   data:

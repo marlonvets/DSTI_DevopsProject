@@ -17,7 +17,14 @@ module.exports = {
       callback(null, res) // Return callback
     })
   },
-  // get: (username, callback) => {
-  //   // TODO create this method
-  // }
+	get: (username, callback) => {
+	
+ 
+	client.hgetall(username, function(err, object) {
+  console.log(object)
+   console.log("get sec");
+    return callback(null, object)
+
+});
+}
 }

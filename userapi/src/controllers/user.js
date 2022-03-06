@@ -21,9 +21,7 @@ module.exports = {
 
       } else {
                 console.log('user exists!');
-                const object = "user by that name"
-
-                return callback(null, object)
+          return callback(new Error("user already exists!"), null)
       }
     })
   },
@@ -40,9 +38,9 @@ module.exports = {
               })
            } else {
                console.log('Doesn\'t exist!');
-               const object =  "no user by that name"
-                       
-               return callback(null, object)
+           //    const object =  "no user by that name"
+               return callback(new Error("user doesn't exist!"), null)            
+            //   return callback(null, object)
            }
             });
 

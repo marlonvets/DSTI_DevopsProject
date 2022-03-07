@@ -35,6 +35,7 @@ userRouter
         }
         return resp.status(400).json(respObj)
       }
+      
       respObj = {
         status: "success",
         msg: res
@@ -43,5 +44,44 @@ userRouter
     })
 		 
   })
-  
+    .put('/', (req, resp) => {
+    userController.update(req.body, (err, res) => {
+      let respObj
+      if(err) {
+        respObj = {
+          status: "error",
+          msg: err.message
+        }
+        return resp.status(400).json(respObj)
+      }
+      respObj = {
+        status: "success",
+        msg: res
+      }
+      resp.status(201).json(respObj)
+    })
+		console.log(req.body); 
+    })
+
+    .delete('/', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
+        //   // TODO Create get method API
+      //  const username = req.body,
+            userController.delete(req.body, (err, res) => {
+            let respObj
+            if (err) {
+                respObj = {
+                    status: "error",
+                    msg: err.message
+                }
+                return resp.status(400).json(respObj)
+            }
+       //     if (res === 1) {
+               respObj = {
+                status: "success",
+                msg: res
+               }
+        //    }
+            resp.status(201).json(respObj)
+        })
+    })
 module.exports = userRouter

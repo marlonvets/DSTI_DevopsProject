@@ -75,12 +75,12 @@ userRouter
                 }
                 return resp.status(400).json(respObj)
             }
-       //     if (res === 1) {
+            if (res === 1) {
                respObj = {
                 status: "success",
-                msg: res
+                   msg: "user deleted: " + req.body
                }
-        //    }
+            }
             resp.status(201).json(respObj)
         })
     })

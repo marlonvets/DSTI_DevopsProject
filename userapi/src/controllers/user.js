@@ -76,9 +76,10 @@ module.exports = {
         client.exists(user.username, function (err, reply) {
             if (reply === 1) {
                 console.log(' exist!')
-                const object = "user deleted: " + user.username
+                
                 client.del(user.username, function (err, object) {
-                  if (err) return callback(err, null)
+                   if (err) return callback(err, null)
+                    object = "user deleted: " + user.username
                    console.log(object)
                 return callback(null, object)
                 })

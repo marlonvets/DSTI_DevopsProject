@@ -46,14 +46,25 @@ describe('User', () => {
                 done()
             })
         })
-
-        // describe('Get', ()=> {
+    describe('Get', ()=> {
         //   // TODO Create test for the get method
-        //   it('get a user by username', (done) => {
+        it('get a user by username', (done) => {
+          const user = {
+                username: 'sergkudinov',
+                firstname: 'Sergei',
+                lastname: 'Kudinov'
+          }
+          userController.create(user, (err, result) => {
+                expect(err).to.be.equal(null)
+                expect(result).to.be.equal('OK')
+                done()
+          })
+
         //     // 1. First, create a user to make this unit test independent from the others
         //     // 2. Then, check if the result of the get method is correct
-        //     done()
-        //   })
-        // })
+            done()
+
+          })
+        ] })
     })
 }

@@ -20,7 +20,7 @@ module.exports = {
                 })
 
       } else {
-                console.log('user exists!');
+        //        console.log('user exists!');
           return callback(new Error("user already exists!"), null)
       }
     })
@@ -93,10 +93,21 @@ module.exports = {
         
         });
 
+    },
+
+    clear: (username, callback) => {
+        client.flushdb(function (err, succeeded) {
+            console.log(succeeded); // will be true if successfull
+            return callback(null, succeeded)
+        });
+        
+    }  
+ 
+
     }
 
 
-}
+ 
 
 
  

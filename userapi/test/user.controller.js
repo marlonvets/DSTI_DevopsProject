@@ -6,6 +6,15 @@ describe('User', () => {
   
     describe('Create', () => {
 
+        it('clear db', (done) => {
+        userController.clear('username', (err, result) => {
+                expect(err).to.be.equal(null)
+         //       expect(result).to.be.equal('OK')
+            done()  
+        })
+            
+        })
+
         it('create a new user', (done) => {
             const user = {
                 username: 'bob',
@@ -38,9 +47,11 @@ describe('User', () => {
                 lastname: 'Marley'
             }
             userController.create(user, (err, result) => {
-                expect(err).to.not.be.equal(null)
-                expect(result).to.be.equal("user already exists!")
-                done()
+                console.log(result);
+             expect(err).to.not.be.equal(null)
+             //  expect(result).to.be.equal("user already exists!")
+              //  expect(result).to.be.equal('OK')
+               
                 // TODO create this test
                 //   // Warning: the user already exists
                 done()

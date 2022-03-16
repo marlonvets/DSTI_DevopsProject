@@ -9,7 +9,11 @@ let client
 describe('User REST API', () => {
 
   before(() => {
-    client = require('../src/dbClient')
+      client = require('../src/dbClient')
+      client.flushdb(function (err, succeeded) {
+          console.log(succeeded); // will be true if successfull
+      });
+
   })
   
   after(()=> {
@@ -21,7 +25,7 @@ describe('User REST API', () => {
 
     it('create a new user', (done) => {
         const user = {
-            username: 'bob',
+            username: 'bob1',
             firstname: 'Robert',
             lastname: 'Marley'
         }

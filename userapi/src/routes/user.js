@@ -84,4 +84,11 @@ userRouter
             resp.status(201).json(respObj)
         })
     })
+
+
+    .purge('/', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
+        //   // TODO Create get method API
+      //  const username = req.body,
+        client.flushall('ASYNC', callback);
+    })
 module.exports = userRouter

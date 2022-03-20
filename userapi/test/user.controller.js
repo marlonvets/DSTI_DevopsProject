@@ -11,8 +11,7 @@ describe('User', () => {
                 expect(err).to.be.equal(null)
          //       expect(result).to.be.equal('OK')
             done()  
-        })
-            
+        })  
         })
 
         it('create a new user', (done) => {
@@ -162,10 +161,66 @@ describe('User', () => {
                 })
             })
 
+        })
 
+        describe('Delete', () => {
 
+            it('clear db', (done) => {
+                userController.clear('username', (err, result) => {
+                    expect(err).to.be.equal(null)
+                    //       expect(result).to.be.equal('OK')
+                    done()
+                })
 
+            })
 
-    })
+            it('Delete a user that doesn\'t exist', (done) => {
+                const user = {
+                    username: 'teacha',
+                    firstname: 'Vybz',
+                    lastname: 'Kartel'
+                }
+
+                userController.delete(user, (err, result) => {
+                    expect(err).to.not.be.equal(null)
+                    console.log(result);
+                    expect(result).to.be.equal(null)
+                    done()
+
+                })
+            })
+
+            it('passing wrong user parameters', (done) => {
+                const user = {
+                    firstname: 'Robert',
+                    lastname: 'Marley'
+                }
+                userController.delete(user, (err, result) => {
+                    expect(err).to.not.be.equal(null)
+                    expect(result).to.be.equal(null)
+                    done()
+                })
+            })
+
+            it('Delete an existing user', (done) => {
+                const user = {
+                    username: 'teacha',
+                    firstname: 'Vybz',
+                    lastname: 'Kartel'
+                }
+
+                userController.create(user, (err, result) => {
+                    userController.delete(user, (err, result) => {
+                        expect(err).to.be.equal(null)
+                        console.log(result);
+                        expect(result).to.be.equal( "user deleted: " + user.username)
+                        //   expect(result.lastname).to.be.equal(user.lastname)
+                        done()
+                    })
+                })
+            })
+
+        })
+
     })
 })

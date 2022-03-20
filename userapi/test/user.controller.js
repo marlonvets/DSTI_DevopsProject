@@ -56,6 +56,7 @@ describe('User', () => {
                 done()
             })
         })
+    })
     describe('Get', ()=> {
         //   // TODO Create test for the get method
         it('get a user by username', (done) => {
@@ -103,6 +104,7 @@ describe('User', () => {
 
 
     })
+ 
 
         describe('Update', () => {
 
@@ -162,7 +164,7 @@ describe('User', () => {
             })
 
         })
-
+        
         describe('Delete', () => {
 
             it('clear db', (done) => {
@@ -223,4 +225,4 @@ describe('User', () => {
         })
 
     })
-})
+ 

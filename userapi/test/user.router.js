@@ -18,9 +18,7 @@ describe('User REST API', () => {
           })
       })
       });
-
-  })
-  
+ 
   after(()=> {
     app.close()
     client.quit()
@@ -71,35 +69,12 @@ describe('User REST API', () => {
 
 describe('Get /user', () => {
 
-    it('create a new user', (done) => {
-        const user = {
-            username: 'bob',
-            firstname: 'Robert',
-            lastname: 'Marley'
-        }
+    it('get user that does not exist', (done) => {
+       
+        const username='teacha'
         chai.request(app)
-            .post('/user')
-            .send(user)
-            .then((res) => {
-                chai.expect(res).to.have.status(201)
-                chai.expect(res.body.status).to.equal('success')
-                chai.expect(res).to.be.json
-                done()
-            })
-            .catch((err) => {
-                throw err
-            })
-    })
-
-    it('pass wrong parameters', (done) => {
-        const user = {
-
-            firstname: 'Robert',
-            lastname: 'Marley'
-        }
-        chai.request(app)
-            .post('/user')
-            .send(user)
+            .get('/user/' + username)
+            .send(username)
             .then((res) => {
                 chai.expect(res).to.have.status(400)
                 chai.expect(res.body.status).to.equal('error')
@@ -110,10 +85,55 @@ describe('Get /user', () => {
                 throw err
             })
     })
+
+    it('pass wrong parameters', (done) => {
+        const username = null
+        chai.request(app)
+            .get('/user/' + username)
+            .send(username)
+            .then((res) => {
+                chai.expect(res).to.have.status(400)
+                chai.expect(res.body.status).to.equal('error')
+                chai.expect(res).to.be.json
+                done()
+            })
+            .catch((err) => {
+                throw err
+            })
+    })
+
+    it('get user  exist', (done) => {
+        const user = {
+            username: 'teacha',
+            firstname: 'Vybz',
+            lastname: 'Kartel'
+        }
+        const username = user.username
+        chai.request(app)
+            .post('/user')
+            .send(user)
+            .then((res) => {
+                chai.request(app)
+                .get('/user/' + username)
+                .send(username)
+                .then((res) => {
+                            chai.expect(res).to.have.status(201)
+                        chai.expect(res.body.status).to.equal('success')
+                        chai.expect(res).to.be.json
+                        done()
+            })
+            })
+
+            .catch((err) => {
+                throw err
+            })
+    })
+
 })
 
 
   // describe('GET /user', ()=> {
   //   // TODO Create test for the get method
-  // })
+    //
+})
  

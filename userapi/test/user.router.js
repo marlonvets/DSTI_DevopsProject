@@ -135,5 +135,81 @@ describe('Get /user', () => {
   // describe('GET /user', ()=> {
   //   // TODO Create test for the get method
     //
+
+
+    describe('Update /user', () => {
+
+        it('update user that does not exist', (done) => {
+
+            const user = {
+                username: 'prince',
+                firstname: 'Dennis',
+                lastname: 'Brown'
+            }
+            const username = user.username
+            chai.request(app)
+                .put('/user')
+                .send(user)
+                .then((res) => {
+                    chai.expect(res).to.have.status(400)
+                    chai.expect(res.body.status).to.equal('error')
+                    chai.expect(res).to.be.json
+                    done()
+                })
+                .catch((err) => {
+                    throw err
+                })
+        })
+
+        it('update passing wrong parameters', (done) => {
+                const user = {
+                
+                firstname: 'Dennis',
+                lastname: 'Brown'
+            }
+            
+            chai.request(app)
+                .put('/user')
+                .send(user)
+                .then((res) => {
+                    chai.expect(res).to.have.status(400)
+                    chai.expect(res.body.status).to.equal('error')
+                    done()
+                })
+                .catch((err) => {
+                    throw err
+                })
+        })
+
+        it('update existing user', (done) => {
+            const user = {
+                username: 'prince',
+                firstname: 'Dennis',
+                lastname: 'Brown'
+            }
+                 chai.request(app)
+                .post('/user')
+                .send(user)
+                .then((res) => {
+                    chai.request(app)
+                        .put('/user')
+                        .send(user)
+                        .then((res) => {
+                            chai.expect(res).to.have.status(201)
+                            chai.expect(res.body.status).to.equal('success')
+                            chai.expect(res).to.be.json
+                            done()
+                        })
+                })
+
+                .catch((err) => {
+                    throw err
+                })
+        })
+
+    })
+
+
+
 })
  

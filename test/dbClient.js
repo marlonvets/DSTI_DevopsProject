@@ -10,4 +10,5 @@ describe('Redis', () => {
   it('should connect to Redis', () => {
     expect(client.connected).to.eql(true)
   })
+    done()
 })

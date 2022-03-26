@@ -1,10 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\userapi",
-    "\\userapi\\src",
-    "\\userapi\\src\\routes"
+    "\\src\\controllers"
   ],
-  "SelectedNode": "\\userapi\\src\\routes\\user.js",
   "PreviewInSolutionExplorer": false
 }

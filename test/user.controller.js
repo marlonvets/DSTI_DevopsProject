@@ -16,7 +16,7 @@ describe('User', () => {
 
         it('create a new user', (done) => {
             const user = {
-                username: 'bob',
+                username: 'bober',
                 firstname: 'Robert',
                 lastname: 'Marley'
             }

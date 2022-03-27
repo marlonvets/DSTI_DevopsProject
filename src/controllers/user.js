@@ -20,7 +20,7 @@ module.exports = {
                 })
 
       } else {
-               console.log('test user exists!');
+        //        console.log('user exists!');
           return callback(new Error("user already exists!"), null)
       }
     })

@@ -20,7 +20,7 @@ userRouter
       }
       resp.status(201).json(respObj)
     })
-      console.log(respObj); 
+      console.log(req.body); 
    
   })
  //   .get('/', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html

@@ -13,16 +13,15 @@ module.exports = {
     // Save to DB
     // TODO check if user already exists
         client.exists(user.username, function (err, reply) {
-      if (reply === 1) {
-          console.log('user exists!');
-          return callback(new Error("user already exists!"), null)
+      if (reply === 0) {
+                client.hmset(user.username, userObj, (err, res) => {
+                    if (err) return callback(err, null)
+                    callback(null, res) // Return callback
+                })
 
       } else {
-          client.hmset(user.username, userObj, (err, res) => {
-              if (err) return callback(err, null)
-              callback(null, res) // Return callback
-          })
-      
+               console.log('test user exists!');
+          return callback(new Error("user already exists!"), null)
       }
     })
   },

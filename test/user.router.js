@@ -36,9 +36,11 @@ describe('User REST API', () => {
         .post('/user')
         .send(user)
         .then((res) => {
-          chai.expect(res).to.have.status(201)
+   //         chai.expect(res.status).to.have.status(201)
+          chai.expect(res.status).to.equal(201)
           chai.expect(res.body.status).to.equal('success')
           chai.expect(res).to.be.json
+          console.log(res.status);
           done()
         })
         .catch((err) => {

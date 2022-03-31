@@ -19,7 +19,16 @@ describe('User REST API', () => {
       })
       });
  
-  after(()=> {
+    after(() => {
+        it('clear db', (done) => {
+            userController.clear('username', (err, result) => {
+                expect(err).to.be.equal(null)
+                //       expect(result).to.be.equal('OK')
+                done()
+            })
+        })
+
+
     app.close()
     client.quit()
   })

@@ -1,0 +1,58 @@
+- name: Install required packages
+  yum:
+    name:
+      - curl
+      - policycoreutils-python
+      - openssh-server
+      - git
+      - wget
+      - nodejs
+      - npm
+      - redis
+    state: latest
+
+- name: Enable and start sshd
+  service:
+    name: sshd
+    state: started
+    enabled: yes
+
+- name: Enable HTTP+HTTPS access
+  firewalld:
+    # This is how we use a variable
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+  # The module will be run for each item
+  with_items:
+    - http
+    - https
+
+- name: Reload firewalld
+  service:
+    name: firewalld
+    state: reloaded
+
+- name: Install postfix
+  yum:
+    name: postfix
+    state: latest
+
+- name: Enable and start postfix
+  service:
+    name: postfix
+    state: started
+    enabled: yes
+    
+- name: Install packages based on package.json.
+  npm:
+    path: /tmp/app
+    
+# - name: Use NPM to start the target
+  # command: npm start
+  # args:
+    # chdir: "/tmp/app"
+  # async: 42
+  # poll: 0
+  # become: yes
+  # become_user: root

@@ -17,30 +17,25 @@
     state: started
     enabled: yes
 
-- name: Enable HTTP+HTTPS access
-  firewalld:
-    # This is how we use a variable
-    service: "{{ item }}"
-    permanent: yes
-    state: enabled
-  # The module will be run for each item
-  with_items:
-    - http
-    - https
+# - name: Enable HTTP+HTTPS access
+  # firewalld:
+    # # This is how we use a variable
+    # service: "{{ item }}"
+    # permanent: yes
+    # state: enabled
+  # # The module will be run for each item
+  # with_items:
+    # - http
+    # - https
 
-- name: Reload firewalld
+# - name: Reload firewalld
+  # service:
+    # name: firewalld
+    # state: reloaded
+    
+- name: Start Redis
   service:
-    name: firewalld
-    state: reloaded
-
-- name: Install postfix
-  yum:
-    name: postfix
-    state: latest
-
-- name: Enable and start postfix
-  service:
-    name: postfix
+    name: redis
     state: started
     enabled: yes
     
@@ -48,11 +43,27 @@
   npm:
     path: /tmp/app
     
+- name: Build app
+  command: npm run build
+  args:
+    chdir: "/tmp/app"	
+    
 # - name: Use NPM to start the target
   # command: npm start
   # args:
-    # chdir: "/tmp/app"
+    # chdir: "/tmp/app/"
   # async: 42
   # poll: 0
   # become: yes
   # become_user: root
+    
+# - name: Use NPM to start the target
+  # command: npm start
+  # args:
+    # chdir: "/tmp/app/"
+  # become: yes
+ 
+# - name: Start the node app
+  # shell: npm start
+  # args:
+    # chdir: /tmp/app/

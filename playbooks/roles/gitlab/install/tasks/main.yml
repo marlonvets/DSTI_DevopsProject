@@ -42,16 +42,59 @@
 - name: Install packages based on package.json.
   npm:
     path: /tmp/app
+
+
+- name: Run test for packages
+  ansible.builtin.shell:
+    cmd: npm test
+    chdir: /tmp/app/
     
-- name: Build app
-  command: npm run build
-  args:
-    chdir: "/tmp/app"	
+- name: This command will change the working directory to somedir/
+  ansible.builtin.shell:
+    cmd: npm start
+    chdir: /tmp/app/
+
+
+
+# - name: NODE | Install pm2
+  # npm:
+    # name: pm2
+    # global: yes
+    # production: yes
+    # state: present
+    
+# - name: Start APP
+  # register: npm_finished
+  # command: pm2 start index.js --name userapi chdir= /tmp/app/src/
+  # ignore_errors: yes
+  # async: 1
+  # poll: 0
+    
+# - name: NODE | Start APP
+  # shell: pm2 start index.js --name server
+   # args:
+    # chdir: /tmp/app/src/
+    # ignore_errors: yes
+    # when: npm_finished.changed
+    
+    
+# - name: Build app
+  # command: npm run build
+  # args:
+    # chdir: "/tmp/app"	
+# - name: Use NPM to start the target
+  # command: npm test
+  # args:
+    # chdir: /tmp/app/
+  # async: 42
+  # poll: 0
+  # become: yes
+  # become_user: root
     
 # - name: Use NPM to start the target
   # command: npm start
   # args:
-    # chdir: "/tmp/app/"
+    # chdir: /tmp/app/
   # async: 42
   # poll: 0
   # become: yes

@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src\\controllers"
+    "\\playbooks\\roles\\gitlab",
+    "\\playbooks\\roles\\gitlab\\install",
+    "\\playbooks\\roles\\gitlab\\install\\tasks"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\docker-compose.yaml",
   "PreviewInSolutionExplorer": false
 }

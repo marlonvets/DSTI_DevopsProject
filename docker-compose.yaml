@@ -5,7 +5,7 @@ services:
     volumes:
         - data:/data
   web:
-    image: marlont876/userapi
+    image: userapidocker-mt
     # COMPLETE HERE
     build: .
     ports:

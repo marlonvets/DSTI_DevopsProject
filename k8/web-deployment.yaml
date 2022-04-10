@@ -29,7 +29,7 @@ spec:
               value: redis
             - name: REDIS_PORT
               value: "6379"
-          image: userapidocker-mt
+          image: marlont876/userapidocker-mt
           name: web
           ports:
             - containerPort: 3000

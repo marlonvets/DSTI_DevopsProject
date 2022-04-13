@@ -4,7 +4,7 @@
   become: true
   # Roles to be executed on these hosts
   roles:
-  - role: gitlab/install
+  - role: userapi/install
     tags: install
 
 #  - role: gitlab/healthchecks

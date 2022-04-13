@@ -4,8 +4,38 @@ It is a basic NodeJS web application exposing REST API that creates and stores u
 
 ## Functionality
 
-1. Start a web server
-2. Create a user
+List all the work performed (briefly, describing features and bonus tasks).
+This project includes a NodeJS web application that is able to create and manage users and thier parameters.
+
+## Features
+### Web Application
+1. Create users by making a post request to the rest endpoint with json object of user information and stores user details in Redis db.
+2. Retrieve user details using a get request containing the username desired.
+3. Update user details by making a post request to the rest endpoint with json object of user information for an existing username.
+4. Delete user by making a delete request to the rest endpoint with json object of user information for an existing username.
+5. Config test for each feature unit, configuration, connections and api routes.
+
+## Deployments and testing
+1. CI/CD pipeline with Github actions:
+ A Github actions workflow was configured to test and deploy the application once all tests pass.
+2. Configure a VM with Vagrant:
+ Vagrant file was configured to  to build a VM running a Cent Os 7, copying required files to the VM and using Rsync to sync the SRC folder containing the source code of the app.
+3. Provision VM using ansible:
+ Ansible was used to install nodejs, redis, application requirements, configure app, run tests and start the application.
+4. Build docker image:
+ A docker file was used to build a docker image of the application excluding all unneccessary files, files were excluded using s docker ignore file
+5. Push image to dockerhub:
+ The application docker image was pushed to docker hub and is available via "docker pull marlont876/userapidocker-mt:latest"
+6. Container orchestration with docker compose:
+ Docker compose was used to build and run the application and redis database on two containers.
+ Containers were able to comunicate and provide access to the application from host machine.
+
+7. Docker orchestration using Kubernetes - 
+	Deployments were configured for the application and redis database.
+	Service was also configured a persistent volume and volume claim was also configured for the cluster.
+
+
+
 
 ## Installation
 

@@ -36,14 +36,14 @@ This project includes a NodeJS web application that is able to create and manage
 
 
 ## Requirements
-Host machine with resources available(20GB drive, 4GB Ram, 2Ghz Cpu)
-PowerShell (or equilalent CLI tool)
-VirtualBox
-Vagrant
-centos/7 Vagrant box for the Virtualbox provider
-Docker
-Kubernetes/Minikube
-Internet access to pull images
+1. Host machine with resources available(20GB drive, 4GB Ram, 2Ghz Cpu)
+2. PowerShell (or equilalent CLI tool)
+3. VirtualBox
+4. Vagrant
+5. Centos/7 Vagrant box for the Virtualbox provider
+6. Docker
+7. Kubernetes/Minikube
+8. Internet access to pull images
 *Administrator access is required on host machine
 
 ## Installation

@@ -53,7 +53,7 @@ This application is written on NodeJS and it uses Redis database.
  2. Download the package from the git repo [git repo](https://github.com/marlonvets/DSTI_DevopsProject.git)
  The app can be deployed in a any of the ways below.
  
- ### Vagrant & Ansible
+ #### Vagrant & Ansible
  
  
 

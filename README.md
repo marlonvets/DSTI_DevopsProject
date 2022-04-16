@@ -36,19 +36,31 @@ This project includes a NodeJS web application that is able to create and manage
 
 
 ## Requirements
-Host machine with resources available(20GB drive, 4GB Ram, 2Ghz Cpu)
-PowerShell (or equilalent CLI tool)
-VirtualBox
-Vagrant
-centos/7 Vagrant box for the Virtualbox provider
-Docker
-Kubernetes/Minikube
-Internet access to pull images
+1. Host machine with resources available(20GB drive, 4GB Ram, 2Ghz Cpu)
+2. PowerShell (or equilalent CLI tool)
+3. VirtualBox
+4. Vagrant
+5. Centos/7 Vagrant box for the Virtualbox provider
+6. Docker
+7. Kubernetes/Minikube
+8. Internet access to pull images
 *Administrator access is required on host machine
 
 ## Installation
 
-This application is written on NodeJS and it uses Redis database.
+This application is written on NodeJS and it uses Redis database. 
+ 1. Provided requirements above are satisfied.
+ 2. Download the package from the git repo [git repo](https://github.com/marlonvets/DSTI_DevopsProject.git)
+ The app can be deployed in a any of the ways below.
+ 
+ #### 1. Vagrant & Ansible
+ a. Open a Administrative shell console in the root of the package directory where "vagrantfile" is located and run: 
+ ```
+Vagrant up 
+```
+ 
+ 
+ 
 
 1. [Install NodeJS](https://nodejs.org/en/download/)
 

@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\playbooks\\roles",
+    "\\playbooks\\roles\\userapi",
+    "\\playbooks\\roles\\userapi\\healthchecks",
+    "\\playbooks\\roles\\userapi\\install",
+    "\\playbooks\\roles\\userapi\\install\\tasks",
+    "\\src"
   ],
-  "SelectedNode": "\\docker-compose.yaml",
+  "SelectedNode": "\\src\\index.js",
   "PreviewInSolutionExplorer": false
 }

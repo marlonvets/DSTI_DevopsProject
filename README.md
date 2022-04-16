@@ -35,7 +35,16 @@ This project includes a NodeJS web application that is able to create and manage
 	Service was also configured a persistent volume and volume claim was also configured for the cluster.
 
 
-
+## Requirements
+Host machine with resources available(20GB drive, 4GB Ram, 2Ghz Cpu)
+PowerShell (or equilalent CLI tool)
+VirtualBox
+Vagrant
+centos/7 Vagrant box for the Virtualbox provider
+Docker
+Kubernetes/Minikube
+Internet access to pull images
+*Administrator access is required on host machine
 
 ## Installation
 

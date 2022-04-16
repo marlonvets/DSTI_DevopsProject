@@ -37,11 +37,11 @@ Vagrant.configure("2") do |config|
   end
     config.vm.provision "shell", 
     inline: "chmod -R 777 /tmp/"
-	config.vm.provision :file, source: './package.json', destination: "/tmp/app/package.json"
-	config.vm.provision :file, source: './conf', destination: "/tmp/app/conf"
-	config.vm.provision :file, source: './test', destination: "/tmp/app/test"
+	config.vm.provision :file, source: '../userapi/package.json', destination: "/tmp/app/package.json"
+	config.vm.provision :file, source: '../userapi/conf', destination: "/tmp/app/conf"
+	config.vm.provision :file, source: '../userapi/test', destination: "/tmp/app/test"
 #	config.vm.provision :file, source: './src', destination: "/tmp/app/src"
-    config.vm.synced_folder "./src", "/tmp/app/src",  type: "rsync", rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "--delete", "-z"]
+    config.vm.synced_folder "../userapi/src", "/tmp/app/src",  type: "rsync", rsync__args: ["--verbose", "--rsync-path='sudo rsync'", "--archive", "--delete", "-z"]
   #  config.vm.provision "shell", "mv /tmp/bolt.local.conf /etc/nginx/conf.d/bolt.local.conf"
   # Use Vagrant Ansible provisioner
   config.vm.provision "ansible_local" do |ansible|

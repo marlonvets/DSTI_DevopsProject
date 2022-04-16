@@ -33,10 +33,10 @@
     cmd: npm test
     chdir: /tmp/app/
 
-- name: Run test for packages
-  ansible.builtin.shell:
-    cmd: npm test
-    chdir: /tmp/app/
+# - name: Run test for packages
+  # ansible.builtin.shell:
+    # cmd: npm test
+    # chdir: /tmp/app/
     
 - name: This command will start the application
   ansible.builtin.shell:

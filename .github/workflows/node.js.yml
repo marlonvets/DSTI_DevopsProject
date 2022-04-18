@@ -8,9 +8,11 @@ on:
     branches: [ main ]
 jobs:
   build:
-
     runs-on: ubuntu-latest
     # Service containers to run with `container-job`
+    defaults:
+      run:
+        working-directory: ./userapi
     services:
       # Label used to access the service container
       redis:
@@ -35,8 +37,8 @@ jobs:
  
  
     - run: npm ci
-         working-directory:userapi
+  #       working-directory:userapi
     - run: npm run build --if-present
-        working-directory:userapi
+  #      working-directory:userapi
     - run: npm test
-        working-directory:userapi
+   #     working-directory:userapi

@@ -12,7 +12,7 @@ jobs:
     # Service containers to run with `container-job`
     defaults:
       run:
-        working-directory: ./userapi
+        working-directory: userapi
     services:
       # Label used to access the service container
       redis:
@@ -31,14 +31,15 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
+        working-directory:userapi
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
  
  
     - run: npm ci
-  #       working-directory:userapi
+        working-directory:userapi
     - run: npm run build --if-present
-  #      working-directory:userapi
+        working-directory:userapi
     - run: npm test
-   #     working-directory:userapi
+       working-directory:userapi

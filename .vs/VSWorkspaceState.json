@@ -1,13 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\playbooks\\roles",
-    "\\playbooks\\roles\\userapi",
-    "\\playbooks\\roles\\userapi\\healthchecks",
-    "\\playbooks\\roles\\userapi\\install",
-    "\\playbooks\\roles\\userapi\\install\\tasks",
-    "\\src"
+    "\\userapi",
+    "\\userapi\\src"
   ],
-  "SelectedNode": "\\src\\index.js",
+  "SelectedNode": "\\userapi\\src\\index.js",
   "PreviewInSolutionExplorer": false
 }

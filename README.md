@@ -51,7 +51,7 @@ This project includes a NodeJS web application that is able to create and manage
 This application is written on NodeJS and it uses Redis database. 
  1. Provided requirements above are satisfied.
  2. Download the package from the git repo [git repo](https://github.com/marlonvets/DSTI_DevopsProject.git)
- The app can be deployed in a any of the ways below.
+ 3. The app can be deployed in a any of the ways below:
  
  #### 1. Vagrant & Ansible
  a. Open a Administrative shell console in the root of the package directory where "vagrantfile" is located and run: 

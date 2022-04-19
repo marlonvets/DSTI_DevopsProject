@@ -51,16 +51,77 @@ This project includes a NodeJS web application that is able to create and manage
 This application is written on NodeJS and it uses Redis database. 
  1. Provided requirements above are satisfied.
  2. Download the package from the git repo [git repo](https://github.com/marlonvets/DSTI_DevopsProject.git)
- 3. The app can be deployed in a any of the ways below:
+ 3. The app may be deployed in a any of the ways below:
  
  #### 1. Vagrant & Ansible
- a. Open a Administrative shell console in the root of the package directory where "vagrantfile" is located and run: 
+ a. Open a Administrative shell console in the IAC folder of the package directory where "vagrantfile" is located and run: 
  ```
 Vagrant up 
 ```
+b. This will provision a linux VM with cent os 7 and install and test the application, which can be accessed via "http://localhost:3000/" on the host machine.
+c. You may connect to the VM via SSH  and run commands using:
+ ```
+Vagrant ssh or vagrant ssh userapi_server
+```
+d. You may check the VM status using:
+ ```
+Vagrant status
+```
+e. You may stop the VM using:
+ ```
+Vagrant halt
+```
+f. To remove the VM and deployement execute the command:
+ ```
+Vagrant destroy
+```
  
+ #### 2. Docker
+
+The docker image for the application can built using the docker file included in the package or it can be pulled from docker hub.
+
+1. Build docker image by running the command below in the root of the package folder where the dockerfile is located:
+ ```
+docker build -t userapidocker-mt .
+```
+This will create an image using the application files and requirements described in the dockerfile.
+
+2. The docker image can be pulled from docker hub using the command below:
+
+ ```
+docker pull marlont876/userapidocker-mt:latest
+```
+ #### 3. Docker Compose
+ 1. The application can be started from the docker compose file using the command below:
+  ```
+  docker-compose up
+```
+This will load  the required docker images and start the application, which can be accessed via "http://localhost:3000/" on the host machine.
+
+2. The deployment/containers can stoppped the by running `CTRL+C` in the  terminal:
  
- 
+3. The deployment can be removed using this command:
+  ```
+  docker-compose rm
+```
+ #### 3. Kubernetes/Minikube
+ The application is exposed on port 30000 which may not be open by default in minikube, 
+ to ensure the port is available, start minkube with the command below:
+   ```
+minikube start --extra-config=apiserver.service-node-port-range=1-10000
+```
+
+ The aplication can be started as kubernetes cluster using the command below:
+   ```
+kubectl apply -f web-service.yaml,web-deployment.yaml,redis-deployment.yaml,data-persistentvolumeclaim.yaml
+```
+This will deploy a single instance of the application, with a network and a persistent volume.
+
+
+
+
+
+
 
 1. [Install NodeJS](https://nodejs.org/en/download/)
 

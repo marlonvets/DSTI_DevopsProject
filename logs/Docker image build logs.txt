@@ -1,0 +1,23 @@
+PS .\DSTI_DevopsProject> docker build -t userapidocker-mt .
+[+] Building 7.5s (11/11) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 32B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 35B                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/node:12                                                         7.2s
+ => [auth] library/node:pull token for registry-1.docker.io                                                        0.0s
+ => [1/5] FROM docker.io/library/node:12@sha256:8b4c721e613da8cfeda2f481668648ad9a4ec582faff9f43f1cfcc133dd3cba8   0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 842B                                                                                  0.0s
+ => CACHED [2/5] WORKDIR /usr/src/app                                                                              0.0s
+ => CACHED [3/5] COPY ./userapi/package*.json ./                                                                   0.0s
+ => CACHED [4/5] RUN npm install                                                                                   0.0s
+ => CACHED [5/5] COPY ./userapi/ .                                                                                 0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:759da33e4460a2c8fcc084a229d8fb896fc5bdfdeac057d1f7374ab201b29030                       0.0s
+ => => naming to docker.io/library/userapidocker-mt                                                                          0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+ 
+

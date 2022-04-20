@@ -23,9 +23,9 @@ This project includes a NodeJS web application that is able to create and manage
 3. Provision VM using ansible:
  Ansible was used to install nodejs, redis, application requirements, configure app, run tests and start the application.
 4. Build docker image:
- A docker file was used to build a docker image of the application excluding all unneccessary files, files were excluded using s docker ignore file
+ A docker file was used to build a docker image of the application excluding all unneccessary files, files were excluded using a docker ignore file
 5. Push image to dockerhub:
- The application docker image was pushed to docker hub and is available via "docker pull marlont876/userapidocker-mt:latest"
+ The application docker image was pushed to docker hub and is available via `docker pull marlont876/userapidocker-mt:latest`
 6. Container orchestration with docker compose:
  Docker compose was used to build and run the application and redis database on two containers.
  Containers were able to comunicate and provide access to the application from host machine.
@@ -58,7 +58,7 @@ This application is written on NodeJS and it uses Redis database.
  ```
 Vagrant up 
 ```
-b. This will provision a linux VM with cent os 7 and install and test the application, which can be accessed via "http://localhost:3000/" on the host machine.
+b. This will provision a linux VM with cent os 7 and install and test the application, which can be accessed via `http://localhost:3000/` on the host machine.
 c. You may connect to the VM via SSH  and run commands using:
  ```
 Vagrant ssh or vagrant ssh userapi_server
@@ -96,7 +96,7 @@ docker pull marlont876/userapidocker-mt:latest
   ```
   docker-compose up
 ```
-This will load  the required docker images and start the application, which can be accessed via "http://localhost:3000/" on the host machine.
+This will load  the required docker images and start the application, which can be accessed via `http://localhost:3000/` on the host machine.
 
 2. The deployment/containers can stoppped the by running `CTRL+C` in the  terminal:
  
@@ -105,18 +105,26 @@ This will load  the required docker images and start the application, which can 
   docker-compose rm
 ```
  #### 3. Kubernetes/Minikube
- The application is exposed on port 30000 which may not be open by default in minikube, 
+1.  The application is exposed on port 3000 which may not be open by default in minikube, 
  to ensure the port is available, start minkube with the command below:
    ```
-minikube start --extra-config=apiserver.service-node-port-range=1-10000
+minikube start --extra-config=apiserver.service-node-port-range=1-5000
 ```
 
- The aplication can be started as kubernetes cluster using the command below:
+ 2. The aplication can be started as kubernetes cluster using the command below:
    ```
 kubectl apply -f web-service.yaml,web-deployment.yaml,redis-deployment.yaml,data-persistentvolumeclaim.yaml
 ```
 This will deploy a single instance of the application, with a network and a persistent volume.
 
+3. On windows you will have to run the command `minikube service web` to expose the configured service.
+This will allow you to connect to the application from the host on `http://localhost:3000/`
+
+4. To see the pods running on the instance run the command `kubectl get pods`
+5. To see the services running on the instance run the command `kubectl get services`
+6. To delete the service run `kubectl delete service <name of service>` or on this case `kubectl delete service web`
+7. To delete the a deployment run the command `kubectl delete deployment <deployment name>` or on this case `kubectl delete deployment web` and `kubectl delete deployment redis`
+8. To delete the entire instance run `minikube delete`
 
 
 

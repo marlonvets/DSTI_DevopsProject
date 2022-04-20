@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\userapi",
-    "\\userapi\\src"
+    "\\userapi"
   ],
-  "SelectedNode": "\\userapi\\src\\index.js",
+  "SelectedNode": "\\userapi\\package-lock.json",
   "PreviewInSolutionExplorer": false
 }

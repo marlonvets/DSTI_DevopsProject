@@ -1,0 +1,25 @@
+PS .\DSTI_DevopsProject> docker-compose up
+Creating dsti_devopsproject_redis_1 ... done
+Creating dsti_devopsproject_web_1   ... done
+Attaching to dsti_devopsproject_redis_1, dsti_devopsproject_web_1
+redis_1  | 1:C 20 Apr 2022 03:18:38.607 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis_1  | 1:C 20 Apr 2022 03:18:38.607 # Redis version=6.2.6, bits=64, commit=00000000, modified=0, pid=1, just started
+redis_1  | 1:C 20 Apr 2022 03:18:38.607 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+redis_1  | 1:M 20 Apr 2022 03:18:38.608 * monotonic clock: POSIX clock_gettime
+redis_1  | 1:M 20 Apr 2022 03:18:38.610 * Running mode=standalone, port=6379.
+redis_1  | 1:M 20 Apr 2022 03:18:38.610 # Server initialized
+redis_1  | 1:M 20 Apr 2022 03:18:38.611 * Loading RDB produced by version 6.2.6
+redis_1  | 1:M 20 Apr 2022 03:18:38.612 * RDB age 949717 seconds
+redis_1  | 1:M 20 Apr 2022 03:18:38.612 * RDB memory usage when created 0.77 Mb
+redis_1  | 1:M 20 Apr 2022 03:18:38.612 # Done loading RDB, keys loaded: 0, keys expired: 0.
+redis_1  | 1:M 20 Apr 2022 03:18:38.612 * DB loaded from disk: 0.001 seconds
+redis_1  | 1:M 20 Apr 2022 03:18:38.612 * Ready to accept connections
+web_1    |
+web_1    | > ece-userapi@1.0.0 start /usr/src/app
+web_1    | > node src/index.js
+web_1    |
+web_1    | Server listening the port 3000
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping dsti_devopsproject_web_1   ... done
+Stopping dsti_devopsproject_redis_1 ... done
+ 

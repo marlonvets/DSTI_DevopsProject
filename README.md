@@ -128,9 +128,6 @@ This will allow you to connect to the application from the host on `http://local
 
 
 
-
-
-
 1. [Install NodeJS](https://nodejs.org/en/download/)
 
 2. [Install Redis](https://redis.io/download)

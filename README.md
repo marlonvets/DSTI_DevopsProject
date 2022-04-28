@@ -127,30 +127,10 @@ This will allow you to connect to the application from the host on `http://local
 8. To delete the entire instance run `minikube delete`
 
 
-
-1. [Install NodeJS](https://nodejs.org/en/download/)
-
-2. [Install Redis](https://redis.io/download)
-
-3. Install application
-
-Go to the root directory of the application (where `package.json` file located) and run:
-
-```
-npm install 
-```
-
 ## Usage
 
-1. Start a web server
+1. All deployment options will start the application and expose it at http://localhost:3000.
 
-From the root directory of the project run:
-
-```
-npm start
-```
-
-It will start a web server available in your browser at http://localhost:3000.
 
 2. Create a user
 

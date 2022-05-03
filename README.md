@@ -130,7 +130,14 @@ This will allow you to connect to the application from the host on `http://local
 ## Usage
 
 1. All deployment options will start the application and expose it at http://localhost:3000.
+	To confirm the application is running test in by:
+	a. Browsing to `http://localhost:3000` in browser of your choice
+	b. Using curl with the command `curl http://localhost:3000/`
+	It will output:
 
+```
+Hello World!
+```
 
 2. Create a user
 
@@ -139,7 +146,7 @@ Send a POST (REST protocol) request using terminal:
 ```bash
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"username":"sergkudinov","firstname":"sergei","lastname":"kudinov"}' \
+  --data '{"username":"champ","firstname":"Usain","lastname":"Bolt"}' \
   http://localhost:3000/user
 ```
 
@@ -149,8 +156,55 @@ It will output:
 {"status":"success","msg":"OK"}
 ```
 
-Another way to test your REST API is to use [Postman](https://www.postman.com/).
+Another way to test your REST API is to use [Postman](https://www.postman.com/) or [SoapUI](https://www.soapui.org/downloads/soapui/).
 
+3. Getting a user information
+
+Send a get (REST protocol) request using terminal:
+
+```bash
+curl -X GET "http://localhost:3000/user/champ" -H "accept: application/json"
+```
+
+It will output:
+
+```
+{"status":"success","msg":{"firstname":"Usain","lastname":"Bolt"}}
+```
+4. Update a user
+
+Send a POST (REST protocol) request using terminal:
+
+```bash
+curl --header "Content-Type: application/json" \
+  --request PUT \
+  --data '{"username":"champ","firstname":"Usain","lastname":"Bolt"}' \
+  http://localhost:3000/user
+```
+
+It will output:
+
+```
+{"status":"success","msg":"OK"}
+```
+
+5. Delete a user
+
+Send a POST (REST protocol) request using terminal:
+
+```bash
+curl --header "Content-Type: application/json" \
+  --request DELETE \
+  --data '{"username":"champ","firstname":"Usain","lastname":"Bolt"}' \
+  http://localhost:3000/user
+```
+
+It will output:
+
+```
+{"status":"success","msg":"user deleted: champ"}
+```
+ 
 ## Testing
 
 From the root directory of the project, run:

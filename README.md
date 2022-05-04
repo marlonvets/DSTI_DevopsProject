@@ -207,13 +207,32 @@ It will output:
  
 ## Testing
 
-From the root directory of the project, run:
+### Vagrant Deployment
+
+From the vagrant directory of the project folder, open a bash/shell window and run:
+1. To connect to the create VM run the command:
+
+```
+vagrant ssh userapi_server
+```
+This will grant bash/shell access to the created VM
+
+2. To move to the app directory run the command below:
+
+```
+cd /tmp/app/
+```
+This will change the bash working directory to the app folder
+
+3. To execute the application tests run the command below:
 
 ```
 npm test
 
-tests stuff
 ```
+This will execute all tests a display the results in the window.
+
+
 
 ## Author
 

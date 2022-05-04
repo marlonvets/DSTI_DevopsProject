@@ -1,0 +1,93 @@
+PS C:\Users\marlon_thompson.SYMPTAI\Documents\GitHub\DSTI_DevopsProject\iac> vagrant ssh
+Last login: Wed May  4 01:54:28 2022 from 10.0.2.2
+[vagrant@userapi ~]$ cd /tmp/app/
+[vagrant@userapi app]$ npm test
+
+> ece-userapi@1.0.0 test
+> mocha test/*.js
+
+(node:27688) DeprecationWarning: Configuration via mocha.opts is DEPRECATED and will be removed from a future version of Mocha. Use RC files or package.json instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+  Configure
+    ✓ load default json configuration file
+    ✓ load custom configuration
+
+  Redis
+    ✓ should connect to Redis
+
+  User
+    Create
+OK
+      ✓ clear db
+OK
+      ✓ create a new user
+      ✓ passing wrong user parameters
+null
+      ✓ avoid creating an existing user
+    Get
+{ firstname: 'Vybz', lastname: 'Kartel' }
+get sec,  Exists!
+{ firstname: 'Vybz', lastname: 'Kartel' }
+      ✓ get a user by username
+Doesn't exist!
+null
+      ✓ get a user that doesn't exist
+null
+      ✓ get a user with no parameter
+    Update
+OK
+      ✓ clear db
+user exists!
+null
+      ✓ update a user that doesn't exist
+      ✓ passing wrong user parameters
+OK
+      ✓ update an existing user
+    Delete
+OK
+      ✓ clear db
+Doesn't exist!
+null
+      ✓ Delete a user that doesn't exist
+      ✓ passing wrong user parameters
+ exist!
+user deleted: teacha
+user deleted: teacha
+      ✓ Delete an existing user
+
+  User REST API
+    POST /user
+Server listening the port 3000
+{ username: 'bob', firstname: 'Robert', lastname: 'Marley' }
+      ✓ create a new user (66ms)
+{ firstname: 'Robert', lastname: 'Marley' }
+      ✓ pass wrong parameters
+    Get /user
+Doesn't exist!
+      ✓ get user that does not exist
+Doesn't exist!
+      ✓ pass wrong parameters
+{ username: 'teacha', firstname: 'Vybz', lastname: 'Kartel' }
+{ firstname: 'Vybz', lastname: 'Kartel' }
+get sec,  Exists!
+      ✓ get user  exist
+    Update /user
+{ username: 'prince', firstname: 'Dennis', lastname: 'Brown' }
+user exists!
+      ✓ update user that does not exist
+{ firstname: 'Dennis', lastname: 'Brown' }
+      ✓ update passing wrong parameters
+{ username: 'prince', firstname: 'Dennis', lastname: 'Brown' }
+{ username: 'prince', firstname: 'Dennis', lastname: 'Brown' }
+      ✓ update existing user
+    Delete /user
+Doesn't exist!
+      ✓ Delete user that does not exist
+      ✓ Delete passing wrong parameters
+{ username: 'queen', firstname: 'Marcia', lastname: 'Griffiths' }
+ exist!
+user deleted: queen
+      ✓ Delete existing user
+
+[vagrant@userapi app]$

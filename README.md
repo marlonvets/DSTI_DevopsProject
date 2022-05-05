@@ -63,15 +63,20 @@ c. You may connect to the VM via SSH  and run commands using:
  ```
 Vagrant ssh or vagrant ssh userapi_server
 ```
-d. You may check the VM status using:
+d. If you want to sync app changes to the VM you can run this command from the SSH connection:
+ ```
+vagrant rsync-auto
+```
+This will sync any changes from the host to the VM
+e. You may check the VM status using:
  ```
 Vagrant status
 ```
-e. You may stop the VM using:
+f. You may stop the VM using:
  ```
 Vagrant halt
 ```
-f. To remove the VM and deployement execute the command:
+g. To remove the VM and deployement execute the command:
  ```
 Vagrant destroy
 ```
@@ -214,6 +219,31 @@ From the vagrant directory of the project folder, open a bash/shell window and r
 
 ```
 vagrant ssh userapi_server
+```
+This will grant bash/shell access to the created VM
+
+2. To move to the app directory run the command below:
+
+```
+cd /tmp/app/
+```
+This will change the bash working directory to the app folder
+
+3. To execute the application tests run the command below:
+
+```
+npm test
+
+```
+This will execute all tests a display the results in the window.
+
+### Docker Deployment
+
+From the vagrant directory of the project folder, open a bash/shell window and run:
+1. To excecute test command on the docker container run
+
+```
+docker-compose exec npm stop
 ```
 This will grant bash/shell access to the created VM
 

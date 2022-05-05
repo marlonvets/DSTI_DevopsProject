@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const app = express()
 const port = process.env.PORT || 3000
-
+process.title = process.argv[2];
 const client = require('./dbClient')
 client.on("error", (err) => {
   console.error(err)
@@ -23,6 +23,5 @@ const server = app.listen(port, (err) => {
   if (err) throw err
   console.log("Server listening the port " + port)
 })
-
 
 module.exports = server

@@ -1,17 +1,14 @@
-# - name: update packages
-  # ansible.builtin.shell:
-    # cmd: sudo apt update
-
 - name: Install required packages
-  apt:
+  yum:
     name:
-    - curl
-    - openssh-server
-    - git
-    - wget
-    - nodejs
-    - npm
-    - redis
+      - curl
+      - policycoreutils-python
+      - openssh-server
+      - git
+      - wget
+      - nodejs
+      - npm
+      - redis
     state: latest
 
 - name: Enable and start sshd
@@ -34,6 +31,10 @@
   ansible.builtin.shell:
     cmd: npm test
     chdir: /tmp/app/
+
+# - name: Run test for packages
+  # ansible.builtin.shell:
+    # cmd: vagrant rsync-auto
     
 - name: This command will start the application
   ansible.builtin.shell:

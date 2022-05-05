@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha test/*.js"
+	, "stop": "killall -SIGINT this-name-can-be-as-long-as-it-needs-to-be"
+	
   },
   "author": "Sergei Kudinov",
   "license": "",

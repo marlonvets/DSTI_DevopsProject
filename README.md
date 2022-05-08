@@ -4,7 +4,6 @@ It is a basic NodeJS web application exposing REST API that creates and stores u
 
 ## Functionality
 
-List all the work performed (briefly, describing features and bonus tasks).
 This project includes a NodeJS web application that is able to create and manage users and thier parameters.
 
 ## Features
@@ -13,7 +12,7 @@ This project includes a NodeJS web application that is able to create and manage
 2. Retrieve user details using a get request containing the username desired.
 3. Update user details by making a post request to the rest endpoint with json object of user information for an existing username.
 4. Delete user by making a delete request to the rest endpoint with json object of user information for an existing username.
-5. Config test for each feature unit, configuration, connections and api routes.
+5. Configured tests for each feature unit, configuration, connections and api routes.
 
 ## Deployments and testing
 1. CI/CD pipeline with Github actions:
@@ -40,11 +39,12 @@ This project includes a NodeJS web application that is able to create and manage
 2. PowerShell (or equilalent CLI tool)
 3. VirtualBox
 4. Vagrant
-5. Centos/7 Vagrant box for the Virtualbox provider
-6. Docker
-7. Kubernetes/Minikube
-8. Internet access to pull images
-*Administrator access is required on host machine
+5. Ansible
+6. Centos/7 Vagrant box for the Virtualbox provider
+7. Docker
+8. Kubernetes or Minikube
+9. Internet access to pull images
+    *Administrator access is required on host machine
 
 ## Installation
 
@@ -109,7 +109,7 @@ This will create an image using the application files and requirements described
 docker pull marlont876/userapidocker-mt:latest
 ```
  #### 3. Docker Compose
- 1. The application can be started from the docker compose file using the command below:
+ 1. The application can be started from the docker compose file using the command below in the root of the package folder where the docker-compose.yaml file is located:
   ```
   docker-compose up
 ```
@@ -296,8 +296,6 @@ From the project folder, open a bash/shell window and run:
 ```
 kubectl exec -it web-57d8997b5d-c5zjq -- /bin/sh
 ```
-![Vagrant VM](/Images/K8PODS.JPG)
-
 This will grant bash/shell access to the container, by default it will open in the app directory.
 
  ![Vagrant VM](/Images/K8BASH.JPG)

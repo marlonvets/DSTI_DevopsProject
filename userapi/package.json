@@ -5,15 +5,15 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha test/*.js"
-	, "stop": "killall -SIGINT this-name-can-be-as-long-as-it-needs-to-be"
-	
+    "test": "mocha test/*.js",
+    "stop": "killall -SIGINT this-name-can-be-as-long-as-it-needs-to-be"
   },
   "author": "Sergei Kudinov",
   "license": "",
   "dependencies": {
     "express": "^4.17.1",
     "mixme": "^0.3.5",
+    "pm2": "^5.2.0",
     "redis": "^3.0.2"
   },
   "devDependencies": {

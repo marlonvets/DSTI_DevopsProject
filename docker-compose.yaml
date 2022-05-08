@@ -6,6 +6,7 @@ services:
         - data:/data
   web:
     image: marlont876/userapidocker-mt
+#    image: useratest-mt
     # COMPLETE HERE
     build: .
     ports:

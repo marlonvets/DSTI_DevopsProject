@@ -237,20 +237,20 @@ npm test
 ```
 This will execute all tests a display the results in the window.
 
-### Docker Deployment
+### Docker/Docker compose Deployment
 
 From the vagrant directory of the project folder, open a bash/shell window and run:
-1. To excecute test command on the docker container run
+1. To excecute commands on the docker container run this will open an interactive prompt to the container
 
 ```
-docker-compose exec npm stop
+docker-compose exec web sh
 ```
 This will grant bash/shell access to the created VM
 
-2. To move to the app directory run the command below:
+2. The propmt will open in the app folder, if not move to the app directory run with command below:
 
 ```
-cd /tmp/app/
+cd /usr/src/app
 ```
 This will change the bash working directory to the app folder
 
@@ -263,9 +263,23 @@ npm test
 This will execute all tests a display the results in the window.
 
 
+### Kubernetes/minikube Deployment
+
+From the project folder, open a bash/shell window and run:
+
+1. To excecute tests on the pod/container run this command
+
+```
+kubectl exec -it --namespace=tools web -- bash -c "npm test"
+```
+This will execute the  to the created VM
+ 
+```
+This will execute all tests a display the results in the window.
+
+
 
 ## Author
 
-Sergei Kudinov   
-sergei@adaltas.com
- test 
+Marlon Thompson   
+mmthompson1011@gmail.com 

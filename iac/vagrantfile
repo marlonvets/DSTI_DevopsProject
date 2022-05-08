@@ -35,6 +35,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", 
     inline: "chmod -R 777 /tmp/"
 	config.vm.provision :file, source: '../userapi/package.json', destination: "/tmp/app/package.json"
+	config.vm.provision :file, source: './pm2_setup.sh', destination: "/tmp/app/pm2_setup.sh"
 	config.vm.provision :file, source: '../userapi/conf', destination: "/tmp/app/conf"
 	config.vm.provision :file, source: '../userapi/test', destination: "/tmp/app/test"
 #	config.vm.provision :file, source: './src', destination: "/tmp/app/src"

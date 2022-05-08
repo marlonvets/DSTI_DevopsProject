@@ -59,6 +59,9 @@ This application is written on NodeJS and it uses Redis database.
 Vagrant up 
 ```
 b. This will provision a linux VM with cent os 7 and install and test the application, which can be accessed via `http://localhost:3000/` on the host machine.
+
+![Site response](images/Vagrantsite.JPG) 
+
 c. You may connect to the VM via SSH  and run commands using:
  ```
 Vagrant ssh or vagrant ssh userapi_server
@@ -80,7 +83,10 @@ g. To remove the VM and deployement execute the command:
  ```
 Vagrant destroy
 ```
- 
+![Vagrant build](images/vagrantbuild.JPG)
+
+![Vagrant VM](images/vagrantVM.JPG) 
+
  #### 2. Docker
 
 The docker image for the application can built using the docker file included in the package or it can be pulled from docker hub.

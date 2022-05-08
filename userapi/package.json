@@ -4,9 +4,8 @@
   "description": "User API web application",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "mocha test/*.js"
-	
+    "test": "mocha test/*.js",
+    "start": "node src/index.js userapi"
   },
   "author": "Sergei Kudinov",
   "license": "",

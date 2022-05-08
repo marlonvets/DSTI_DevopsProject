@@ -60,7 +60,7 @@ Vagrant up
 ```
 b. This will provision a linux VM with cent os 7 and install and test the application, which can be accessed via `http://localhost:3000/` on the host machine.
 
-![Site response](images/Vagrantsite.JPG) 
+![Site response](/images/Vagrantsite.png) 
 
 c. You may connect to the VM via SSH  and run commands using:
  ```

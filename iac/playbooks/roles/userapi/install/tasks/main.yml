@@ -27,69 +27,19 @@
   npm:
     path: /tmp/app
 
-# - name: install pm2
-  # npm:
-    # name: pm2
-    # global: yes
-    # state: present
+- name: install pm2
+  npm:
+    name: pm2
+    global: yes
+    state: present
 
-# - name: Run pm2 script
-  # ansible.builtin.script:
-    # cmd:  /tmp/app/pm2_setup.sh
-
-
-# - name: This command will start the application
-  # ansible.builtin.shell:
-    # cmd: pm2 status
-    # chdir: /home/vagrant/
+- name: Run test for app
+  become: true
+  ansible.builtin.shell:
+    cmd: npm test
+    chdir: /tmp/app/
     
-# - name: Start APP
-  # register: npm_finished
-  # command: pm2 start index.js --name userapi chdir=/tmp/app/src
-# #  ignore_errors: yes
-  # async: 1
-  # poll: 0
-  
-  
-# - name: Start app with PM2
-  # ansible.builtin.shell:
-    # cmd: pm2 start index.js --name userapi  
-    # chdir: /tmp/app/src
-  
-# - name: Start app with PM2
-  # ansible.builtin.shell:
-   # cmd: pm2 startup systemd
-   # chdir: /tmp/app/src
- 
-# - name: create pm2 init.d script
-  # template:
-    # src: pm2_init_config.j2
-    # dest: "/etc/init.d/pm2"
-    # backup: yes
-    # mode: 0751
-
-# - name: ensure pm2 service is started
-  # service:
-    # name: pm2
-    # state: started
-    # enabled: yes   
-  # become: true
-  
-# - name: Run test for app
-  # become: true
-  # ansible.builtin.shell:
-    # cmd: npm test
-    # chdir: /tmp/app/
-
-
-    
-# - name: Start app with PM2
-  # become: true
-  # ansible.builtin.shell:
-    # cmd: pm2 start /srcindex.js --name 'userapi'
-    # chdir: /tmp/app
-    
-# - name: This command will start the application
-  # ansible.builtin.shell:
-    # cmd: npm start
-    # chdir: /tmp/app/
+- name: This command will start the application
+  ansible.builtin.shell:
+    cmd: npm start
+    chdir: /tmp/app/

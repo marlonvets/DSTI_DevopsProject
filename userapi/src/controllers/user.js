@@ -20,7 +20,7 @@ module.exports = {
                 })
 
       } else {
-        //        console.log('user exists!');
+       
           return callback(new Error("user already exists!"), null)
       }
     })
@@ -38,9 +38,9 @@ module.exports = {
               })
            } else {
                console.log('Doesn\'t exist!');
-           //    const object =  "no user by that name"
-               return callback(new Error("user doesn't exist!"), null)            
-            //   return callback(null, object)
+           
+               return callback(new Error("user does not exist!"), null)            
+            
            }
             });
 
@@ -54,13 +54,12 @@ module.exports = {
             firstname: user.firstname,
             lastname: user.lastname,
         }
-        // Save to DB
-        // TODO check if user already exists
+        
         client.exists(user.username, function (err, reply) {
             if (reply === 1) {
                 client.hmset(user.username, userObj, (err, res) => {
                     if (err) return callback(err, null)
-                    callback(null, res) // Return callback
+                    callback(null, res) 
                 })
 
             } else {
@@ -86,9 +85,9 @@ module.exports = {
        
             } else {
                 console.log('Doesn\'t exist!');
-                //    const object =  "no user by that name"
+            
                 return callback(new Error("user doesn't exist!"), null)
-                //   return callback(null, object)
+        
             }
         
         });

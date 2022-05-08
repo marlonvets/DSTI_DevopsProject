@@ -13,7 +13,7 @@ describe('User REST API', () => {
       it('clear db', (done) => {
           userController.clear('username', (err, result) => {
               expect(err).to.be.equal(null)
-              //       expect(result).to.be.equal('OK')
+    
               done()
           })
       })
@@ -23,7 +23,7 @@ describe('User REST API', () => {
         it('clear db', (done) => {
             userController.clear('username', (err, result) => {
                 expect(err).to.be.equal(null)
-                //       expect(result).to.be.equal('OK')
+      
                 done()
             })
         })
@@ -139,12 +139,6 @@ describe('Get /user', () => {
     })
 
 })
-
-
-  // describe('GET /user', ()=> {
-  //   // TODO Create test for the get method
-    //
-
 
     describe('Update /user', () => {
 

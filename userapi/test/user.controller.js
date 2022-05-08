@@ -9,7 +9,7 @@ describe('User', () => {
         it('clear db', (done) => {
         userController.clear('username', (err, result) => {
                 expect(err).to.be.equal(null)
-         //       expect(result).to.be.equal('OK')
+   
             done()  
         })  
         })
@@ -49,17 +49,13 @@ describe('User', () => {
             userController.create(user, (err, result) => {
                 console.log(result);
              expect(err).to.not.be.equal(null)
-             //  expect(result).to.be.equal("user already exists!")
-              //  expect(result).to.be.equal('OK')
-               
-                // TODO create this test
-                //   // Warning: the user already exists
+           
                 done()
             })
         })
     })
     describe('Get', ()=> {
-        //   // TODO Create test for the get method
+   
         it('get a user by username', (done) => {
           const user = {
                 username: 'teacha',
@@ -112,7 +108,7 @@ describe('User', () => {
             it('clear db', (done) => {
                 userController.clear('username', (err, result) => {
                     expect(err).to.be.equal(null)
-                    //       expect(result).to.be.equal('OK')
+          
                     done()
                 })
 
@@ -157,8 +153,7 @@ describe('User', () => {
                     userController.update(user, (err, result) => {
                         expect(err).to.be.equal(null)
                         console.log(result);
-                     //   expect(result.firstname).to.be.equal(user.firstname)
-                     //   expect(result.lastname).to.be.equal(user.lastname)
+ 
                         done()
                     })
                 })
@@ -171,7 +166,7 @@ describe('User', () => {
             it('clear db', (done) => {
                 userController.clear('username', (err, result) => {
                     expect(err).to.be.equal(null)
-                    //       expect(result).to.be.equal('OK')
+       
                     done()
                 })
 
@@ -217,7 +212,7 @@ describe('User', () => {
                         expect(err).to.be.equal(null)
                         console.log(result);
                         expect(result).to.be.equal( "user deleted: " + user.username)
-                        //   expect(result.lastname).to.be.equal(user.lastname)
+ 
                         done()
                     })
                 })

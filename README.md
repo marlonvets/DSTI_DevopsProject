@@ -272,9 +272,7 @@ From the project folder, open a bash/shell window and run:
 ```
 kubectl exec -it --namespace=tools web -- bash -c "npm test"
 ```
-This will execute the  to the created VM
  
-```
 This will execute all tests a display the results in the window.
 
 

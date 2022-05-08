@@ -4,5 +4,6 @@ node_modules
 !.gitignore
 !.eslintignore
 !.eslintrc.json
+!.vs
 /node_modules
 

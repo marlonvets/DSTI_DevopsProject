@@ -23,9 +23,8 @@ userRouter
       console.log(req.body); 
    
   })
- //   .get('/', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
-   .get('/:username', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
-  //   // TODO Create get method API
+ 
+   .get('/:username', (req, resp, next) => {  
      const username = req.params.username
 	  userController.get(username, (err, res) => {
       let respObj
@@ -64,9 +63,7 @@ userRouter
 		console.log(req.body); 
     })
 
-    .delete('/', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
-        //   // TODO Create get method API
-      //  const username = req.body,
+    .delete('/', (req, resp, next) => {  
             userController.delete(req.body, (err, res) => {
             let respObj
             if (err) {

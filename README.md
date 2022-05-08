@@ -60,7 +60,7 @@ Vagrant up
 ```
 b. This will provision a linux VM with cent os 7 and install and test the application, which can be accessed via `http://localhost:3000/` on the host machine.
 
-![Site response](/images/Vagrantsite.png) 
+![Site response](/Images/Vagrantsite.jpg) 
 
 c. You may connect to the VM via SSH  and run commands using:
  ```
@@ -83,9 +83,13 @@ g. To remove the VM and deployement execute the command:
  ```
 Vagrant destroy
 ```
-![Vagrant build](images/vagrantbuild.JPG)
+#### Vagrant VM Build
 
-![Vagrant VM](images/vagrantVM.JPG) 
+![Vagrant build](/Images/vagrantbuild.JPG)
+
+
+![Vagrant VM](/Images/vagrantVM.JPG) 
+
 
  #### 2. Docker
 
@@ -97,6 +101,8 @@ docker build -t userapidocker-mt .
 ```
 This will create an image using the application files and requirements described in the dockerfile.
 
+![Vagrant VM](/Images/Dockerbuild.JPG)
+
 2. The docker image can be pulled from docker hub using the command below:
 
  ```
@@ -107,7 +113,13 @@ docker pull marlont876/userapidocker-mt:latest
   ```
   docker-compose up
 ```
+
+![Vagrant VM](/Images/DockerComposebuild.JPG)
+
 This will load  the required docker images and start the application, which can be accessed via `http://localhost:3000/` on the host machine.
+Docker containers running:
+
+![Vagrant VM](/Images/containers.JPG)
 
 2. The deployment/containers can stoppped the by running `CTRL+C` in the  terminal:
  
@@ -123,6 +135,7 @@ minikube start --extra-config=apiserver.service-node-port-range=1-5000
 ```
 
  2. The aplication can be started as kubernetes cluster using the command below:
+ *The commanand must run from the K8s folder
    ```
 kubectl apply -f web-service.yaml,web-deployment.yaml,redis-deployment.yaml,data-persistentvolumeclaim.yaml
 ```
@@ -273,12 +286,28 @@ This will execute all tests a display the results in the window.
 
 From the project folder, open a bash/shell window and run:
 
-1. To excecute tests on the pod/container run this command
+1. To excecute tests on the pod/container we need the name of the pod, run the command `kubectl get pods` to get the name.
+
+![Vagrant VM](/Images/K8PODS.JPG)
+
+
+2. To excecute commands on the container run this command to open an interactive prompt to the container
 
 ```
-kubectl exec -it --namespace=tools web -- bash -c "npm test"
+kubectl exec -it web-57d8997b5d-c5zjq -- /bin/sh
 ```
- 
+![Vagrant VM](/Images/K8PODS.JPG)
+
+This will grant bash/shell access to the container, by default it will open in the app directory.
+
+ ![Vagrant VM](/Images/K8BASH.JPG)
+
+3. To execute the application tests run the command below:
+
+```
+npm test
+
+``` 
 This will execute all tests a display the results in the window.
 
 
